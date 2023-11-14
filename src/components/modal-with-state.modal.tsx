@@ -10,24 +10,20 @@ import {
 } from "@/components/ui/dialog";
 import { ModalBase } from "./modal-base";
 import { ModalIDs } from "@/modal/modals.atom";
-import { useModalBindings } from "@/modal/modals.hook";
+import { useModal, useModalBindings } from "@/modal/modals.hook";
 
 const modalId = "with-state-modal" as const satisfies ModalIDs;
 export function SomeModal() {
-  const { setClose } = useModalBindings(modalId);
+  const { data } = useModal(modalId);
   return (
     <ModalBase id={modalId}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
-          <DialogDescription>
-            Anyone who has this link will be able to view this.
-          </DialogDescription>
+          <DialogTitle>Modal with state</DialogTitle>
+          <DialogDescription>Extra wow!</DialogDescription>
         </DialogHeader>
         <div className="flex items-center space-x-2">
-          <Button size="sm" className="px-3" onClick={setClose}>
-            <span>Close it with binding</span>
-          </Button>
+          <p> value is: {data.value}</p>
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>

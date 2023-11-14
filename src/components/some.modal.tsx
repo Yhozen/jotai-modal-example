@@ -19,10 +19,8 @@ export function SomeModal() {
     <ModalBase id={modalId}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
-          <DialogDescription>
-            Anyone who has this link will be able to view this.
-          </DialogDescription>
+          <DialogTitle>Example modal</DialogTitle>
+          <DialogDescription>Wow!</DialogDescription>
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <Button size="sm" className="px-3" onClick={setClose}>
