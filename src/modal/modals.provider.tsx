@@ -3,7 +3,7 @@ import { useAtomValue } from "jotai";
 
 import { openedModalsAtom } from "./modals.atom";
 import { ReactNode } from "react";
-import { getComponent } from "./getComponent";
+import { getComponent } from "./modals.utils";
 
 export function ModalsProvider(props: { children: ReactNode }) {
   const modals = useAtomValue(openedModalsAtom);
