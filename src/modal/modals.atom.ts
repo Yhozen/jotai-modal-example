@@ -6,18 +6,26 @@ import type { ValueOf } from "type-fest";
 import type { ModalData } from "./modals.type";
 import { createModalInitialState } from "./modals.utils";
 
+type ModalWithStateData = {
+  value: number;
+};
+
 const MODALS_INITIAL_STATE = {
-  /*
-  "success-modal": createModalInitialState<
-    SuccessfulModalData,
-    "success-modal"
-  >("success-modal"),*/
+  "with-state-modal": createModalInitialState<
+    ModalWithStateData,
+    "with-state-modal"
+  >("with-state-modal"),
   "example-modal": createModalInitialState("example-modal"),
 } as const satisfies Record<string, ModalData>;
 
 export const loadComponent = {
   "example-modal": dynamic(() =>
     import("@/components/some.modal").then(({ SomeModal }) => SomeModal)
+  ),
+  "with-state-modal": dynamic(() =>
+    import("@/components/modal-with-state.modal").then(
+      ({ SomeModal }) => SomeModal
+    )
   ),
 } as const satisfies Record<ModalIDs, ComponentType>;
 

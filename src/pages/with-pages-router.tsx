@@ -6,13 +6,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center last:p-24">
       <h1 className="font-semibold my-5">
-        Using app router (i.e: "/app" folder)
+        Using pages router (i.e: "/pages" folder)
       </h1>
       <OpenExampleModal />
-      <Link href="/with-pages-router" className="my-2 underline">
-        see pages router version
+      <Link href="/" className="my-2 underline">
+        see app router version
       </Link>
     </main>
   );
